@@ -1,3 +1,6 @@
+<h2>Send Bare Bones instructions to the server, and have the server interpret them.<h2>
+
+
 
 -Start server first
 -specify the port for both Client and Server
