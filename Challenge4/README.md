@@ -3,7 +3,7 @@
 
 ## Running the program
 
-* Complie and run only Server.java and Client.java ()
+* Complie and run only Server.java and Client.java 
 * Start the server first
 * Specify the port for both Client and Server
 * Use java Server 20500(where 2500 is the port that you wish to connect to)
