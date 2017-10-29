@@ -1,6 +1,8 @@
 # Send Bare Bones instructions to the server, and have the server interpret them.
 
 
+###### Complie and run only Server.java and Client.java ()
+
 
 * Start the server first
 * Specify the port for both Client and Server
