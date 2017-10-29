@@ -11,32 +11,29 @@ public class Client {
 
     public static void main(String[] args)
     {
-        int portNumber = Integer.parseInt(args[1]);
-	String username=args[2];
 
-        //int portNum = 20500;
-	String host="localhost";
-            try (Socket client = new Socket(host,portNum)) {
-                try (PrintWriter writer = new PrintWriter(client.getOutputStream(),true)) {
-                    try(BufferedReader read = new BufferedReader(new InputStreamReader(client.getInputStream()))) {
-			System.out.println("Connection established");
-                        String inputLine;
+        if (args.length != 1) {
+            System.err.println("Usage: java Client <port number>");
+            System.exit(1);
+        }
 
-/*
-			System.out.println("What is your name? ");
-			Scanner textscan=new Scanner(System.in);
-			username=textscan.nextLine();
-			
 
-			
-*/
-			BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+        int portNumber = Integer.parseInt(args[0]);
+ 
+        String host="localhost";
+        try (Socket client = new Socket(host,portNumber)) {
+            try (PrintWriter writer = new PrintWriter(client.getOutputStream(),true)) {
+                try(BufferedReader read = new BufferedReader(new InputStreamReader(client.getInputStream()))) {
+                    System.out.println("Connection established");
+                    String inputLine;
 
-			while((inputLine = stdIn.readLine()) != null )
+                    BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+
+                    while(!((inputLine = stdIn.readLine()).equals("EXIT")))
                         {
-			    writer.println(inputLine);
-			    
-			}                  
+                            writer.println(inputLine);
+                
+                        }                  
                     
                       
                     }
