@@ -1,8 +1,8 @@
-#Send Bare Bones instructions to the server, and have the server interpret them.
+# Send Bare Bones instructions to the server, and have the server interpret them.
 
 
 
--Start server first
+-Start the server first
 -specify the port for both Client and Server
 -use java Server 20500(where 2500 is the port that you wish to connect to)
 
