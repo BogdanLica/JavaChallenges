@@ -2,9 +2,9 @@
 
 
 
--Start the server first
--specify the port for both Client and Server
--use java Server 20500(where 2500 is the port that you wish to connect to)
+* Start the server first
+* Specify the port for both Client and Server
+* Use java Server 20500(where 2500 is the port that you wish to connect to)
 
 
 
