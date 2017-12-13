@@ -1,34 +1,66 @@
 import java.io.*;
 
-public class EnigmaFile {
-    public static void main(String[] args)
+public class EnigmaFile
+{
+    FileInputStream finstream;
+    BufferedReader br;
+    BufferedWriter writer;
+
+    /**
+     * Find the path of the file from which to read each line
+     * Find the path of the directory and so create the path
+     * of the FileWriter.
+     *
+     * @throws Exception File not found
+     */
+    public EnigmaFile() throws Exception
     {
-        EnigmaMachine myEnigma = new EnigmaMachine();
+
+        String path = Main.class.getClassLoader().getResource("filein.txt").getPath();
+        File currentDirectory=new File(path);
+        finstream = new FileInputStream(currentDirectory);
 
 
-        try
-        {
-            FileInputStream finstream = new FileInputStream("C:\\Users\\Bogdan\\IdeaProjects\\enigma\\src\\filein.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(finstream));
-            BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Bogdan\\IdeaProjects\\enigma\\src\\fileout.txt"));
-            String currentLine;
+        String pathToWrite = path.replaceFirst("filein.txt","fileout.txt");
+        File outputFile = new File(pathToWrite);
+        br = new BufferedReader(new InputStreamReader(finstream));
+        outputFile.createNewFile();
+        FileWriter  fileWrite = new FileWriter(outputFile.getAbsoluteFile());
+        writer = new BufferedWriter(fileWrite);
 
 
-            while((currentLine= br.readLine()) != null)
-            {
-                String encodedLine = myEnigma.start(currentLine);
+    }
 
-                writer.write(encodedLine);
-            }
+    /**
+     * Read the next line from the file
+     *
+     * @return String the next line from file
+     * @throws IOException File not found
+     */
+    public String readFromFile() throws IOException {
+        return br.readLine();
+    }
 
-            finstream.close();
-            writer.close();
+    /**
+     * Close both the file that you write into and
+     * the file that you reed from
+     *
+     * @throws IOException File not found
+     */
+    public void closeFile() throws IOException {
+        finstream.close();
+        writer.close();
+    }
 
-
-        }
-        catch (Exception e)
-        {
-            System.err.println(e);
-        }
+    /**
+     * Write the given String into the file specified in FileWriter
+     *
+     * @param messageToWrite String to be written to the file
+     * @throws IOException File not found
+     */
+    public void writeToFile(String messageToWrite) throws IOException {
+        writer.write(messageToWrite);
     }
 }
+
+

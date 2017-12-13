@@ -15,7 +15,7 @@ public class Plugboard {
      * an Iterator{@link #returnIterator()} and clashes
      * {@link Plug#classesWith} are checked against
      * the new Plug(created using the two sockets passed
-     * as parameters: end1,end2
+     * as parameters: end1, end2
      *
      *
      * @param end1 First Socket of the Plug
@@ -45,6 +45,30 @@ public class Plugboard {
         myPlugboard.add(newPlug);
         return true;
     }
+
+
+    /**
+     * Return the plugs connected to the Plugboard
+     *
+     * @return The Plugs connected in the current Plugboard
+     */
+    public ArrayList<Plug> getPlugs()
+    {
+        return this.myPlugboard;
+    }
+
+
+    /**
+     * Set the Plugboard of the current object to the Plugboard
+     * passed as parameter
+     *
+     * @param inputPlugs passed Plugboard
+     */
+    public void setPlugboard(ArrayList<Plug> inputPlugs)
+    {
+        this.myPlugboard = inputPlugs;
+    }
+
 
     /**
      * Get the total number of Plugs in the ArrayList

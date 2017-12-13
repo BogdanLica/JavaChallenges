@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  @author Bogdan
  */
@@ -39,6 +40,28 @@ public class EnigmaMachine {
     {
         myplugboard.clear();
     }
+
+    /**
+     * Return the plugs connected to the Plugboard
+     *
+     * @return The Plugs connected in the current Plugboard
+     */
+    public ArrayList<Plug> getPlugboard()
+    {
+        return myplugboard.getPlugs();
+    }
+
+    /**
+     * Set the Plugboard of the current object to the Plugboard
+     * passed as parameter
+     *
+     * @param inputPlugboard passed Plugboard
+     */
+    public void setPlugboard(ArrayList<Plug> inputPlugboard)
+    {
+        myplugboard.setPlugboard(inputPlugboard);
+    }
+
 
     /**
      * Adding the Rotor passed as parameter in {@link #slot}
@@ -115,10 +138,16 @@ public class EnigmaMachine {
      * @throws Exception Character not valid
      */
     protected char encodeLetter(char letterToEncode) throws Exception {
-        if((int) letterToEncode < 65 ||(int) letterToEncode > 90)
+        if( letterToEncode == ' ')
+        {
+            return letterToEncode;
+
+        }
+        else if((int) letterToEncode < 65 ||(int) letterToEncode > 90)
         {
             throw new Exception("Non alpha-numerical value");
         }
+
         else
         {
             char encodedChar = myplugboard.substitute(letterToEncode);
@@ -170,3 +199,4 @@ public class EnigmaMachine {
 
 
 }
+
